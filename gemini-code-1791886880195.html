@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Học trực tuyến Udemy - Đạo tạo & Quản lý</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- App Container -->
+    <div id="app" class="min-h-screen flex flex-col">
+
+        <!-- Top Navigation Bar -->
+        <header class="bg-slate-900 text-white shadow-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <span class="text-2xl font-black tracking-wider text-indigo-400">udemy<span class="text-white text-xs px-1.5 py-0.5 bg-indigo-600 rounded ml-1">PRO</span></span>
+                    <nav class="hidden md:flex space-x-1 text-sm font-medium">
+                        <button onclick="switchTab('student')" id="nav-student" class="px-3 py-2 rounded-md bg-indigo-700 text-white transition">Học viên</button>
+                        <button onclick="switchTab('instructor')" id="nav-instructor" class="px-3 py-2 rounded-md hover:bg-slate-800 text-slate-300 transition">Giảng viên</button>
+                        <button onclick="switchTab('admin')" id="nav-admin" class="px-3 py-2 rounded-md hover:bg-slate-800 text-slate-300 transition">Quản trị viên (Admin)</button>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <span class="text-xs bg-amber-500/20 text-amber-300 px-2.5 py-1 rounded-full border border-amber-500/30 font-medium">Đại học Thủy lợi - Nhóm 8</span>
+                    <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-sm">N</div>
+                </div>
+            </div>
+            <!-- Mobile nav sub -->
+            <div class="md:hidden flex justify-around bg-slate-800 py-2 border-t border-slate-700 text-xs">
+                <button onclick="switchTab('student')" id="mob-nav-student" class="font-bold text-indigo-400">Học viên</button>
+                <button onclick="switchTab('instructor')" id="mob-nav-instructor" class="text-slate-300">Giảng viên</button>
+                <button onclick="switchTab('admin')" id="mob-nav-admin" class="text-slate-300">Quản trị viên</button>
+            </div>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="flex-grow max-w-7xl w-full mx-auto p-4 md:p-6">
+
+            <!-- ================= 1. PHÂN HỆ HỌC VIÊN ================= -->
+            <div id="tab-student" class="space-y-6">
+                <!-- Banner tìm kiếm -->
+                <div class="bg-gradient-to-r from-indigo-900 to-purple-900 rounded-2xl p-6 md:p-10 text-white shadow-xl relative overflow-hidden">
+                    <div class="relative z-10 max-w-2xl">
+                        <h1 class="text-2xl md:text-4xl font-extrabold mb-3">Học tập linh hoạt, làm chủ tương lai số</h1>
+                        <p class="text-indigo-200 text-sm md:text-base mb-6">Khám phá các khóa học lập trình, marketing, thiết kế và lớp trực tuyến theo yêu cầu tích hợp AI hỗ trợ thông minh.</p>
+                        <div class="flex bg-white rounded-lg p-1.5 shadow-lg">
+                            <input type="text" placeholder="Tìm kiếm khóa học, giảng viên, chủ đề..." class="flex-grow px-4 py-2 text-slate-800 focus:outline-none text-sm">
+                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-md font-medium text-sm transition">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Danh sách khóa học & Lớp trực tuyến -->
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold text-slate-800">Lớp học trực tuyến theo yêu cầu & Khóa học nổi bật</h2>
+                        <span class="text-xs text-indigo-600 font-semibold cursor-pointer hover:underline">Xem tất cả</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition flex flex-col">
+                            <div class="bg-indigo-50 h-36 flex items-center justify-center text-indigo-500 font-bold text-lg relative">
+                                <span class="absolute top-3 left-3 bg-indigo-600 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Live AI Class</span>
+                                <i class="fa-solid fa-graduation-cap text-4xl"></i>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow">
+                                <h3 class="font-bold text-base mb-1 text-slate-900">Ứng dụng AI trong Marketing số</h3>
+                                <p class="text-xs text-slate-500 mb-3">Giảng viên: Nguyễn Minh Anh</p>
+                                <div class="flex items-center text-xs text-amber-500 font-bold mb-4">
+                                    <span>4.9</span> <i class="fa-solid fa-star ml-1"></i> <span class="text-slate-400 font-normal ml-1">(120 đánh giá)</span>
+                                </div>
+                                <div class="mt-auto flex items-center justify-between pt-3 border-t border-slate-100">
+                                    <span class="text-indigo-600 font-bold text-lg">499.000 đ</span>
+                                    <button onclick="openStudentRoom('Ứng dụng AI trong Marketing số')" class="bg-indigo-50 hover:bg-indigo-600 hover:text-white text-indigo-600 px-4 py-2 rounded-lg text-xs font-semibold transition">Vào phòng học / Đăng ký</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition flex flex-col">
+                            <div class="bg-purple-50 h-36 flex items-center justify-center text-purple-500 font-bold text-lg relative">
+                                <span class="absolute top-3 left-3 bg-purple-600 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Bestseller</span>
+                                <i class="fa-solid fa-code text-4xl"></i>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow">
+                                <h3 class="font-bold text-base mb-1 text-slate-900">Lập trình Python nâng cao & Xử lý dữ liệu</h3>
+                                <p class="text-xs text-slate-500 mb-3">Giảng viên: Đỗ Yến Ngọc</p>
+                                <div class="flex items-center text-xs text-amber-500 font-bold mb-4">
+                                    <span>4.8</span> <i class="fa-solid fa-star ml-1"></i> <span class="text-slate-400 font-normal ml-1">(340 đánh giá)</span>
+                                </div>
+                                <div class="mt-auto flex items-center justify-between pt-3 border-t border-slate-100">
+                                    <span class="text-indigo-600 font-bold text-lg">699.000 đ</span>
+                                    <button onclick="openStudentRoom('Lập trình Python nâng cao')" class="bg-indigo-50 hover:bg-indigo-600 hover:text-white text-indigo-600 px-4 py-2 rounded-lg text-xs font-semibold transition">Vào học / Nộp bài</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition flex flex-col">
+                            <div class="bg-emerald-50 h-36 flex items-center justify-center text-emerald-500 font-bold text-lg relative">
+                                <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Yêu cầu mở lớp</span>
+                                <i class="fa-solid fa-bullhorn text-4xl"></i>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow">
+                                <h3 class="font-bold text-base mb-1 text-slate-900">Thiết kế UI/UX thực chiến với Figma</h3>
+                                <p class="text-xs text-slate-500 mb-3">Đề xuất bởi: Cộng đồng sinh viên TMĐT</p>
+                                <div class="text-xs text-slate-600 mb-4 bg-slate-50 p-2 rounded border border-slate-100">
+                                    Trạng thái: Đã có <strong>43/50</strong> học viên đăng ký giữ chỗ.
+                                </div>
+                                <div class="mt-auto flex items-center justify-between pt-3 border-t border-slate-100">
+                                    <span class="text-emerald-600 font-bold text-sm">Chờ mở lớp</span>
